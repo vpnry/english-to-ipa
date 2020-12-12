@@ -32,16 +32,17 @@ python3 to-ipa.py input.txt 0
 + For function call: 
 
 ```python3
-toIPA(f, 1) # insert IPA paragraphs follows English paragraphs
-toIPA(f, 0) # insert IPA transcription next to each word
+toIPA("input.txt", 1) # insert IPA paragraphs follows English paragraphs
+toIPA("input.txt", 0) # insert IPA transcription next to each word
 ```
 
 ## Example
 
+In Terminal, run this command:
+
 ```bash
 python3 to-ipa.py input.txt 1
 ```
-
 
 + Input file `input.txt` content:
 
