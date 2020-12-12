@@ -6,8 +6,8 @@
 # toIPA(f, 1) # insert IPA paragraphs follows English paragraphs
 # toIPA(f, 0) # insert IPA transcription next to each word
 # In Terminal:
-# python3 ipa.py test.txt 0 
-# python3 ipa.py test.txt 1
+# python3 to-ipa.py test.txt 0 
+# python3 to-ipa.py test.txt 1
 
 
 
@@ -40,14 +40,14 @@ def toIPA(f, y=1):
         print("Total: " +  str(para)+ " paragraphs" )
         
         if y == 1:
-            print("Arrange paragraph by paragraph")
+            print("Inserting IPA paragraphs follows English paragraphs")
             for i in range(para):
                 print("Processing par no.: " +  str(i+1))
                 writ += "[" + str(i+1) +"] " + tex[i].strip() + "\n\n" + "[" + str(i+1) +"] " + ip[i].strip()
                 writ += "\n\n"
         ###
         else:
-            print("Insert IPA next to each word")
+            print("Inserting IPA next to each word")
             for i in range(para):
                 print("Processing par no.: " +  str(i+1))
                 enp = tex[i].strip().split(" ")
@@ -65,16 +65,20 @@ def toIPA(f, y=1):
         print("#-----------------------")
         
 #------------------- TEST ---------------------
-# f = "text"
-# f = f + ".txt"
-# toIPA(f, y=1):
 
 #-------------------- CLI ---------------------
 # CLI tips, more here: https://stackoverflow.com/a/65108366
+
 if __name__ == "__main__":
   # args: array. 0 = filename
   # From 1 forward, what ever follows after the filename
   # (*expand)
-  globals()["toIPA"](*args[1:])
-  
+  if len(args[1:]) > 0:
+    print("Usong CLI mode")
+    globals()["toIPA"](*args[1:])
+  else:
+    print("Using function call")
+    toIPA("input.txt", 1)
+    
+
   
